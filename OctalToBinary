@@ -1,0 +1,31 @@
+#include<stdio.h>
+#include<conio.h>
+int ConverToBinary(int num)
+{
+	int rem=0,i=1,binary=0;
+	while(num!=0)
+	{
+		rem=num%2;
+		num/=2;
+		binary=binary+rem*i;
+		i=i*10;
+	}
+	return binary;
+}
+int main()
+{
+	int octalnum;
+	printf("Enter the octal number");
+	scanf("%d",&octalnum);
+	int rem=0,i=1,binary=0;
+	while(octalnum!=0)
+	{
+		rem=octalnum%10;
+		octalnum/=10;
+		binary=binary+ConverToBinary(rem)*i;
+		i*=1000;
+	}
+	printf("%d",binary);
+	return 0;
+	getch();
+}
