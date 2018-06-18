@@ -1,0 +1,47 @@
+#include<stdio.h>
+#include<conio.h>
+#include<math.h>
+void ConvertToHex(int num)
+{
+	int rem=0,i=0,j=0;
+	int result[10];
+	while(num!=0)
+	{
+		rem=num%16;
+		num=num/16;
+		if(rem==10)
+			result[i]='A';
+		else if(rem==11)
+			result[i]='B';
+		else if(rem==12)
+			result[i]='C';
+		else if(rem==13)
+			result[i]='D';
+		else if(rem==14)
+			result[i]='E';
+		else if(rem==15)
+			result[i]='F';
+		else
+			result[i]=rem;
+		i++;
+	}
+	for(j=i;j>=0;j--)
+		printf("%c",'result[j]');
+}
+int main()
+{
+	int OCtal,HEx;
+	printf("Enter the number");
+	scanf("%d",&OCtal);
+	int rem=0,Decimal=0,i=0;
+	while(OCtal!=0)
+	{
+		rem=OCtal%10;
+		OCtal/=10;
+		Decimal+=rem*pow(8,i);
+		i++;
+	}
+	ConvertToHex(Decimal);
+	return 0;
+	getch();
+}
